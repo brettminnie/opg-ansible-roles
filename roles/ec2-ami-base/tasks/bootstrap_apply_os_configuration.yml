@@ -345,6 +345,11 @@
   when: "'trusty' in ansible_distribution_release"
   notify: reload_upstart
 
+- name: add baked groups
+  group: 
+    name: "{{ item }}"
+  with_items: "{{ ec2_ami_base.baked_groups }}"
+
 - name: add baked users
   user: 
     name: "{{ item.username }}"

@@ -112,7 +112,7 @@ user:
     exists: true
     groups:
     - sudo
-    - users
+    - jenkins
     home: /home/jenkins-agent
     shell: /usr/bin/bash
 group:
@@ -228,12 +228,12 @@ file:
   /home/jenkins-agent/.ssh:
     exists: true
     owner: jenkins-agent
-    group: jenkins-agent
+    group: jenkins
   /home/jenkins-agent/.ssh/authorized_keys:
     exists: true
     contains:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQUrIFmf+RUg9euvzQYPTkwkPymIayzsirMr2UL/DD9w9gSdrjbWyNWyoSqAl7WvtUi35iemM5IKI0bipZDooQyD94eqX19FW2QlJAdqXhScw+XbNJ6YA8M+AZcHqDXd/kObr2b8U0KJhrZykRFXXjRqR4jKMxAXPtxzn6ggSFwDASLdY6xRhiVU9VMb7kQfrs70Lusn2zRlLdFe+qNNrHDrXu5pLJkLIII6YNzJbaG8zAP9f0BjXDlgsSQJ9A/8gXWdCwVXtnIuuHHWpUYuo8M8mq1z/bOMGNJEzxRir3ygdQebMD+9dnzAEzlZ7SwS4dae334BDLA0EeiGdkz0d/ github user mojopg-siriusbuild
     owner: jenkins-agent
-    group: jenkins-agent
+    group: jenkins
 
 
