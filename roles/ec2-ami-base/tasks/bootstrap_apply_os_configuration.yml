@@ -345,3 +345,22 @@
   when: "'trusty' in ansible_distribution_release"
   notify: reload_upstart
 
+- name: add baked users
+  user: 
+    name: "{{ item.username }}"
+    comment: "{{ item.comment }}"
+    groups: "{{ item.groups[1:]}}"
+    home: "{{ item.home }}"
+    group: "{{ item.groups[0] }}"
+    createhome: yes
+    state: present
+    shell: "{{ item.shell }}"
+  with_items: "{{ ec2_ami_base.baked_users }}"
+  
+- name: add authorized_keys
+  authorized_key: 
+    user: "{{ item.username }}"
+    key: "{{ item.authorized_keys }}"
+    manage_dir: true
+    state: present
+  with_items: "{{ ec2_ami_base.baked_users }}"
