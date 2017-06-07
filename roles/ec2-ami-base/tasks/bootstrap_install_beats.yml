@@ -8,7 +8,7 @@
 - name: enable beats
   service:
     name: "{{ item }}"
-    state: running
+    state: started
     enabled: no
     use: service
   with_items:
@@ -20,7 +20,7 @@
 - name: enable beats
   service:
     name: "{{ item }}"
-    state: running
+    state: started
     enabled: yes
     use: service
   with_items:
