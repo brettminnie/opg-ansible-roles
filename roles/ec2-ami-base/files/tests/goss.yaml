@@ -114,7 +114,7 @@ user:
     - sudo
     - jenkins
     home: /home/jenkins-agent
-    shell: /usr/bin/bash
+    shell: /bin/bash
 group:
   docker:
     exists: true
