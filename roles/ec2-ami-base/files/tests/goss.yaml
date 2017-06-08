@@ -240,12 +240,12 @@ file:
   /etc/sudoers:
     exists: true
     contains:
-      - Defaults        env_reset
-      - Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      - Defaults        env_keep = "PATH SSH_AGENT_PID SSH_AUTH_SOCK"
-      - Defaults        exempt_group+=sudo
-      - Defaults        exempt_group+=wheel
-      - %sudo   ALL=(ALL:ALL) NOPASSWD: ALL
-      - %wheel  ALL=(ALL:ALL) NOPASSWD: ALL
+      - "Defaults        env_reset"
+      - 'Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"'
+      - 'Defaults        env_keep = "PATH SSH_AGENT_PID SSH_AUTH_SOCK"'
+      - "Defaults        exempt_group+=sudo"
+      - "Defaults        exempt_group+=wheel"
+      - "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL"
+      - "%wheel  ALL=(ALL:ALL) NOPASSWD: ALL"
 
 
