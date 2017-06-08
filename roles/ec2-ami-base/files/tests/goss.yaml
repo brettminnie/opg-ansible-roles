@@ -111,7 +111,7 @@ user:
   jenkins-agent:
     exists: true
     groups:
-    - sudo
+    - wheel
     - jenkins
     home: /home/jenkins-agent
     shell: /bin/bash
@@ -119,6 +119,8 @@ group:
   docker:
     exists: true
     gid: 999
+  wheel:
+    exists: true
 process:
   sshd:
     running: true
@@ -235,5 +237,15 @@ file:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQUrIFmf+RUg9euvzQYPTkwkPymIayzsirMr2UL/DD9w9gSdrjbWyNWyoSqAl7WvtUi35iemM5IKI0bipZDooQyD94eqX19FW2QlJAdqXhScw+XbNJ6YA8M+AZcHqDXd/kObr2b8U0KJhrZykRFXXjRqR4jKMxAXPtxzn6ggSFwDASLdY6xRhiVU9VMb7kQfrs70Lusn2zRlLdFe+qNNrHDrXu5pLJkLIII6YNzJbaG8zAP9f0BjXDlgsSQJ9A/8gXWdCwVXtnIuuHHWpUYuo8M8mq1z/bOMGNJEzxRir3ygdQebMD+9dnzAEzlZ7SwS4dae334BDLA0EeiGdkz0d/ github user mojopg-siriusbuild
     owner: jenkins-agent
     group: jenkins
+  /etc/sudoers
+    exists: true
+    contains:
+      - Defaults        env_reset
+      - Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - Defaults        env_keep = "PATH SSH_AGENT_PID SSH_AUTH_SOCK"
+      - Defaults        exempt_group+=sudo
+      - Defaults        exempt_group+=wheel
+      - %sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+      - %wheel  ALL=(ALL:ALL) NOPASSWD: ALL
 
 
