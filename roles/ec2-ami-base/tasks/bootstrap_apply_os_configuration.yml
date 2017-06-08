@@ -371,6 +371,10 @@
   when: "'trusty' in ansible_distribution_release"
   notify: reload_upstart
 
+- name: add wheel group
+  group: 
+    name: wheel
+
 - name: add baked groups
   group: 
     name: "{{ item }}"
