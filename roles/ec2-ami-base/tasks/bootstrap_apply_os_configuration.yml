@@ -323,7 +323,7 @@
       #includedir /etc/sudoers.d  
     owner: root
     group: root
-    validate: visudo -c
+    validate: '/usr/sbin/visudo -cf %s' 
 
 - name: generate /etc/os-release-ec2
   lineinfile:
