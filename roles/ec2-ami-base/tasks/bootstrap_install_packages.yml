@@ -44,11 +44,12 @@
     - deborphan
     - cloud-init
     - nfs-common
-
-- name: install salt on 1404 only
-  apt:
-    name: "{{ item }}"
-    update_cache: no
-  with_items:
     - salt-minion
-  when: "'trusty' in ansible_distribution_release"
+
+#- name: install salt on 1404 only
+#  apt:
+#    name: "{{ item }}"
+#    update_cache: no
+#  with_items:
+#    - salt-minion
+#  when: "'trusty' in ansible_distribution_release"
