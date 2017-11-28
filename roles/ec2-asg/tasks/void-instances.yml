@@ -16,3 +16,4 @@
 - name: Wait for instance termination to settle down
   pause:
     minutes: 2
+  when: destroy_stack|default(False)
